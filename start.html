@@ -1,0 +1,175 @@
+﻿<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Старт · Справка по аэродинамике БПЛА</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient">
+      <div class="blob blob-a"></div>
+      <div class="blob blob-b"></div>
+      <div class="grid"></div>
+    </div>
+
+    <header class="top">
+      <div class="brand">
+        <span class="brand-mark">Aero</span>
+        <span class="brand-name">Уровень Старт</span>
+      </div>
+      <a class="ghost back-link" href="index.html">К оглавлению</a>
+    </header>
+
+    <main class="level-layout">
+      <section class="intro level-hero">
+        <p class="eyebrow">Уровень 1</p>
+        <h1>Старт: базовая конфигурация от типа до силовой схемы</h1>
+        <p class="lead">
+          Страница собрана по твоей структуре: сначала выбор типа аппарата, затем ЦТ, профиль крыла и силовая
+          схема для производства на 3D-принтере из PLA+.
+        </p>
+        <div class="summary-grid">
+          <article class="summary-card">
+            <h3>Тип</h3>
+            <p id="aircraftTypeLabel">Летающее крыло</p>
+          </article>
+          <article class="summary-card">
+            <h3>Материал</h3>
+            <p>PLA+, с учетом усилений в нагруженных зонах.</p>
+          </article>
+          <article class="summary-card">
+            <h3>Режим</h3>
+            <p>Черновая инженерная конфигурация уровня Старт.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Перед настройкой: как это летает</h2>
+          <p class="kicker">Короткая база перед расчетами</p>
+        </div>
+        <div class="principles">
+          <details open>
+            <summary>Как летает самолет</summary>
+            <p>
+              Крыло создает подъемную силу при движении вперед. Двигатель дает тягу, которая разгоняет аппарат,
+              а сопротивление воздуха и вес ему противодействуют. Устойчивый полет получается, когда эти силы
+              сбалансированы для выбранного режима.
+            </p>
+          </details>
+          <details>
+            <summary>Для чего нужен центр тяжести (ЦТ)</summary>
+            <p>
+              ЦТ определяет продольную устойчивость. Слишком задний ЦТ делает аппарат резким и склонным к срыву,
+              слишком передний ухудшает маневренность и требует большей скорости. Поэтому ЦТ задают в допустимом
+              диапазоне и уточняют по результатам облета.
+            </p>
+          </details>
+          <details>
+            <summary>Что такое САХ</summary>
+            <p>
+              САХ (средняя аэродинамическая хорда) — это расчетная хорда крыла, к которой удобно привязывать
+              положение ЦТ. Вместо «миллиметров от носа модели» используют процент САХ, чтобы настройки можно
+              было переносить между разными размерами и компоновками.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>1. Тип аппарата</h2>
+          <p class="kicker">Базовая развилка проекта</p>
+        </div>
+        <div class="type-selector" role="tablist" aria-label="Тип аппарата">
+          <button class="type-btn is-active" type="button" data-aircraft-select="wing" aria-pressed="true">
+            Летающее крыло
+          </button>
+          <button class="type-btn" type="button" data-aircraft-select="classic" aria-pressed="false">
+            Классическая схема
+          </button>
+        </div>
+        <p class="kicker">
+          Выбор влияет на диапазон ЦТ, профиль крыла и компоновку силовой установки.
+        </p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>2. Определение центра тяжести</h2>
+          <p class="kicker">Для каждого типа своя стартовая область</p>
+        </div>
+        <article class="scheme-block" data-aircraft-panel="wing">
+          <h3>Летающее крыло</h3>
+          <ul class="feature-list">
+            <li>Стартовая точка ЦТ: 15-20% САХ от передней кромки.</li>
+            <li>Первый вылет лучше делать с небольшим «передним» запасом.</li>
+            <li>Коррекция: смещать АКБ по 2-3 мм с фиксацией результата полета.</li>
+          </ul>
+        </article>
+        <article class="scheme-block hidden" data-aircraft-panel="classic">
+          <h3>Классическая схема</h3>
+          <ul class="feature-list">
+            <li>Стартовая точка ЦТ: 25-33% САХ крыла от передней кромки.</li>
+            <li>Для первого облета безопаснее держать ЦТ ближе к передней границе диапазона.</li>
+            <li>Коррекция: шаг смещения массы 3-5 мм между вылетами.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>3. Выбор профиля крыла</h2>
+          <p class="kicker">По два базовых варианта на тип</p>
+        </div>
+        <div class="profile-grid" data-aircraft-panel="wing">
+          <article class="profile-card">
+            <h3>ЛК · Вариант A</h3>
+            <p class="profile-tag">Рефлексный профиль</p>
+            <p>Стабильнее по тангажу для крыла без хвостового оперения, проще для первого вылета.</p>
+          </article>
+          <article class="profile-card">
+            <h3>ЛК · Вариант B</h3>
+            <p class="profile-tag">Умеренно несущий профиль</p>
+            <p>Лучше по крейсеру, но потребует более аккуратной настройки элевонов и ЦТ.</p>
+          </article>
+        </div>
+        <div class="profile-grid hidden" data-aircraft-panel="classic">
+          <article class="profile-card">
+            <h3>Классика · Вариант A</h3>
+            <p class="profile-tag">Плоско-выпуклый</p>
+            <p>Хороший выбор для медленного и предсказуемого полета на старте.</p>
+          </article>
+          <article class="profile-card">
+            <h3>Классика · Вариант B</h3>
+            <p class="profile-tag">Полусимметричный</p>
+            <p>Более нейтральная реакция в маневре и выше диапазон рабочих скоростей.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>4. Силовая схема (PLA+)</h2>
+          <p class="kicker">Базовые ограничения 3D-печатной конструкции</p>
+        </div>
+        <ul class="feature-list">
+          <li>Моторама и зона крепления крыла требуют локальных усилений (дополнительные стенки и ребра).</li>
+          <li>Несущие элементы лучше сразу проектировать под углепруток/трубку как лонжерон.</li>
+          <li>АКБ размещать в диапазоне быстрой регулировки для настройки ЦТ без перепечатки.</li>
+          <li>Крепежные точки под двигатель и шасси делать с тепловыми вставками или закладными элементами.</li>
+          <li>Для PLA+ предусматривать вентиляцию отсека ВМГ и регулятора, чтобы избежать перегрева.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Уровень Старт · Справка по аэродинамике БПЛА</span>
+      <span>Черновик структуры</span>
+    </footer>
+
+    <script src="start.js"></script>
+  </body>
+</html>
