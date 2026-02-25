@@ -1,6 +1,7 @@
 ﻿<script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import logoUrl from "/logo.png";
 
 const router = useRouter();
 const tocVisible = ref(true);
@@ -24,6 +25,7 @@ const openRoute = (path) => {
 
     <header class="top">
       <div class="brand">
+        <img class="brand-logo" :src="logoUrl" alt="Логотип Aero" />
         <span class="brand-mark">Aero</span>
         <span class="brand-name">Справка по аэродинамике БПЛА</span>
       </div>
@@ -141,3 +143,5 @@ const openRoute = (path) => {
     </footer>
   </div>
 </template>
+
+

@@ -1,4 +1,9 @@
-﻿<template>
+﻿<script setup>
+import classicSchemeImage from "../assets/images/classic-scheme.png";
+import flyingWingImage from "../assets/images/flying-wing.png";
+import logoUrl from "/logo.png";
+</script>
+<template>
   <div class="page-root">
     <div class="ambient">
       <div class="blob blob-a"></div>
@@ -8,6 +13,7 @@
 
     <header class="top">
       <div class="brand">
+        <img class="brand-logo" :src="logoUrl" alt="Логотип Aero" />
         <span class="brand-mark">Aero</span>
         <span class="brand-name">Уровень 1 · Первый полет</span>
       </div>
@@ -138,6 +144,16 @@
           Форма крыла, или профиль, сильно влияет на поведение самолета. Профиль подбирается
           не только под подъемную силу, но и под схему самолета.
         </p>
+        <div class="scheme-images">
+          <figure class="scheme-image-card">
+            <img class="scheme-image" :src="classicSchemeImage" alt="Схема классического самолета с хвостовым оперением" />
+            <figcaption>Классическая схема</figcaption>
+          </figure>
+          <figure class="scheme-image-card">
+            <img class="scheme-image" :src="flyingWingImage" alt="Схема самолета типа летающее крыло" />
+            <figcaption>Летающее крыло</figcaption>
+          </figure>
+        </div>
 
         <h3>Классическая схема</h3>
         <p class="kicker">
@@ -195,3 +211,7 @@
     </footer>
   </div>
 </template>
+
+
+
+

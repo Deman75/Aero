@@ -78,6 +78,15 @@ body {
   font-weight: 600;
 }
 
+.brand-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
 .brand-mark {
   background: var(--ink);
   color: #fff;
@@ -426,6 +435,35 @@ h1 {
   gap: 12px;
 }
 
+.scheme-images {
+  margin: 14px 0 8px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.scheme-image-card {
+  margin: 0;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.scheme-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.scheme-image-card figcaption {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
 .profile-card {
   background: #fff;
   border: 1px solid var(--line);
@@ -697,7 +735,8 @@ h1 {
   }
 
   .summary-grid,
-  .profile-grid {
+  .profile-grid,
+  .scheme-images {
     grid-template-columns: 1fr;
     gap: 10px;
   }
@@ -714,6 +753,11 @@ h1 {
 }
 
 @media (max-width: 420px) {
+  .brand-logo {
+    width: 30px;
+    height: 30px;
+  }
+
   .brand-mark {
     font-size: 0.82rem;
     padding: 5px 10px;
