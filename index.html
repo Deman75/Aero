@@ -2,110 +2,11 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Справка по аэродинамике БПЛА</title>
-    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="ambient">
-      <div class="blob blob-a"></div>
-      <div class="blob blob-b"></div>
-      <div class="grid"></div>
-    </div>
-
-    <header class="top">
-      <div class="brand">
-        <span class="brand-mark">Aero</span>
-        <span class="brand-name">Справка по аэродинамике БПЛА</span>
-      </div>
-      <button class="ghost" id="modeToggle" type="button">Свернуть оглавление</button>
-    </header>
-
-    <main class="layout">
-      <section class="intro">
-        <p class="eyebrow">Интерактивная база знаний</p>
-        <h1>Интерактивная справка по аэродинамике беспилотных самолетов</h1>
-        <p class="lead">
-          Двигаемся от простого к сложному: сначала взлет и базовая устойчивость,
-          затем управление под задачу, и наконец точное соответствие ТЗ.
-        </p>
-        <div class="actions">
-          <a class="primary" href="start.html">Начать обучение</a>
-          <button class="secondary" type="button">Открыть терминологию</button>
-        </div>
-        <div class="meta">
-          <div>
-            <div class="meta-label">Уровни</div>
-            <div class="meta-value">Старт · Контроль · ТЗ</div>
-          </div>
-          <div>
-            <div class="meta-label">Формат</div>
-            <div class="meta-value">Интерактивная справка</div>
-          </div>
-          <div>
-            <div class="meta-label">Статус</div>
-            <div class="meta-value">Содержание в разработке</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="toc" id="toc">
-        <div class="toc-header">
-          <h2>Оглавление</h2>
-          <span class="pill">3 уровня</span>
-        </div>
-        <div class="toc-grid">
-          <article class="toc-card" data-card-href="start.html" role="link" tabindex="0" aria-label="Открыть уровень Старт">
-            <header>
-              <h3>Старт</h3>
-              <p>Чтобы просто полетел: базовые силы, устойчивость, безопасный взлет.</p>
-            </header>
-            <a class="link" href="start.html">Открыть уровень</a>
-          </article>
-          <article
-            class="toc-card"
-            data-card-message="Раздел «Контроль» пока в разработке."
-            role="button"
-            tabindex="0"
-            aria-label="Открыть уровень Контроль"
-          >
-            <header>
-              <h3>Контроль</h3>
-              <p>Расчет минимальной скорости, определение нужной ВМГ и проверка запаса устойчивости.</p>
-            </header>
-            <button class="link" type="button">Открыть уровень</button>
-          </article>
-          <article
-            class="toc-card"
-            data-card-message="Раздел «ТЗ» пока в разработке."
-            role="button"
-            tabindex="0"
-            aria-label="Открыть уровень ТЗ"
-          >
-            <header>
-              <h3>ТЗ</h3>
-              <p>Чтобы полетел строго по ТЗ: расчетные параметры, проверки, верификация.</p>
-            </header>
-            <button class="link" type="button">Открыть уровень</button>
-          </article>
-        </div>
-
-        <div class="toc-notes">
-          <h4>Черновые заметки</h4>
-          <ul class="notes">
-            <li>Каждый уровень будет раскрыт на отдельной странице.</li>
-            <li>Планируются интерактивные схемы и калькуляторы.</li>
-            <li>Будет режим "практика" с задачами.</li>
-          </ul>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <span>Справка по аэродинамике БПЛА · 2026</span>
-      <span>Контент в разработке</span>
-    </footer>
-
-    <script src="app.js"></script>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
